@@ -1,0 +1,17 @@
+# /etc/hosts — identical on all 6 nodes
+# HPC cluster: master + 5 compute nodes
+
+127.0.0.1   localhost
+
+# Cluster nodes (private GbE network)
+192.168.50.1    master
+192.168.50.11   compute01
+192.168.50.12   compute02
+192.168.50.13   compute03
+192.168.50.14   compute04
+192.168.50.15   compute05
+
+# IPv6
+::1             localhost ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
