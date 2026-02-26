@@ -1,0 +1,13 @@
+[Unit]
+Description=HPC Cluster Node Health Check — every 5 minutes
+Requires=health_check.service
+
+[Timer]
+# Run 2 minutes after boot, then every 5 minutes
+OnBootSec=2min
+OnUnitActiveSec=5min
+AccuracySec=30s
+Unit=health_check.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=HPC Cluster Node Health Check
+After=network.target munge.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/hpc-cluster/monitoring/health_check.sh
+StandardOutput=journal
+StandardError=journal
