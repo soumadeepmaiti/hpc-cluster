@@ -1,0 +1,11 @@
+mpi/mpi_hello
+mpi/mpi_scaling
+*.out
+*.err
+slurm-*.out
+*.key
+*.pem
+*.tar.gz
+*.swp
+*~
+.DS_Store
