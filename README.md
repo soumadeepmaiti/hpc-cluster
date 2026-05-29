@@ -1,8 +1,6 @@
 # Linux HPC Cluster
 
-A production-grade HPC cluster built from bare-metal desktop workstations for
-numerical simulation workloads. Implemented as part of the Student Assistant
-role at the Technical University of Munich (TUM).
+A production-grade HPC cluster built from bare-metal desktop workstations for simulation workloads.
 
 ---
 
