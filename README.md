@@ -4,30 +4,21 @@ A production-grade HPC cluster built from bare-metal desktop workstations for si
 
 ---
 
-## Cluster Architecture
-
-```
-                        ┌─────────────────────────────────┐
-                        │           MASTER NODE            │
-                        │   192.168.50.1  (master)        │
-                        │                                  │
-                        │  slurmctld  munged  nfs-server  │
-                        │  chronyd    iptables NAT         │
-                        └──────────────┬──────────────────┘
-                                       │ enp0s25  (GbE switch)
-              ┌────────────────────────┼───────────────────────┐
-              │                        │                        │
-   ┌──────────┴───────┐    ┌──────────┴───────┐   ┌──────────┴───────┐
-   │   compute01      │    │   compute02      │   │   compute03      │
-   │ 192.168.50.11    │    │ 192.168.50.12    │   │ 192.168.50.13    │
-   │  slurmd  munged  │    │  slurmd  munged  │   │  slurmd  munged  │
-   └──────────────────┘    └──────────────────┘   └──────────────────┘
-              │                        │                        │
-   ┌──────────┴───────┐    ┌──────────┴───────┐
-   │   compute04      │    │   compute05      │
-   │ 192.168.50.14    │    │ 192.168.50.15    │
-   │  slurmd  munged  │    │  slurmd  munged  │
-   └──────────────────┘    └──────────────────┘
+┌─────────────────────────────────┐
+                                    │           MASTER NODE            │
+                                    │   192.168.50.1  (master)        │
+                                    │                                  │
+                                    │  slurmctld  munged  nfs-server  │
+                                    │  chronyd    iptables NAT         │
+                                    └────────────────┬────────────────┘
+                                                     │ enp0s25  (GbE switch)
+         ┌───────────────┬──────────────────┬────────┴─────────┬───────────────┐
+         │               │                  │                   │               │
+┌────────┴───────┐ ┌─────┴──────────┐ ┌────┴───────────┐ ┌────┴───────────┐ ┌─┴──────────────┐
+│   compute01    │ │   compute02    │ │   compute03    │ │   compute04    │ │   compute05    │
+│ 192.168.50.11  │ │ 192.168.50.12  │ │ 192.168.50.13  │ │ 192.168.50.14  │ │ 192.168.50.15  │
+│ slurmd  munged │ │ slurmd  munged │ │ slurmd  munged │ │ slurmd  munged │ │ slurmd  munged │
+└────────────────┘ └────────────────┘ └────────────────┘ └────────────────┘ └────────────────┘
 ```
 
 | Node | Hostname | IP | Role | CPUs | RAM |
