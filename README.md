@@ -117,23 +117,3 @@ All recurring operational tasks run unattended via cron and systemd timers:
 
 ---
 
-## Quick Start
-
-```bash
-# Clone and run full deployment from master
-git clone https://github.com/<you>/hpc-cluster
-cd hpc-cluster/setup
-
-# Run in order on master
-sudo bash 01_network.sh
-sudo bash 02_ntp.sh
-sudo bash 03_nfs.sh
-sudo bash 04_munge.sh
-sudo bash 05_slurm_master.sh
-
-# Then SSH to each compute node and run
-sudo bash 06_slurm_compute.sh
-
-# Validate
-sinfo -N -l
-sbatch slurm/mpi_test.slurm
