@@ -24,14 +24,14 @@ A production-grade HPC cluster built from bare-metal desktop workstations for si
    └──────────────────┘    └──────────────────┘   └──────────────────┘
 ```
 
-| Node | Hostname | IP | Role | CPUs | RAM |
-|------|----------|----|------|------|-----|
-| 0 | master | 192.168.50.1 | Controller + Login | 8 | 16 GB |
-| 1 | compute01 | 192.168.50.11 | Compute | 8 | 16 GB |
-| 2 | compute02 | 192.168.50.12 | Compute | 8 | 16 GB |
-| 3 | compute03 | 192.168.50.13 | Compute | 8 | 16 GB |
-| 4 | compute04 | 192.168.50.14 | Compute | 8 | 16 GB |
-| 5 | compute05 | 192.168.50.15 | Compute | 8 | 16 GB |
+| Node | Hostname | Role | CPUs | RAM |
+|------|----------|------|------|-----|
+| 0 | master | Controller + Login | 8 | 16 GB |
+| 1 | compute01 | Compute | 8 | 16 GB |
+| 2 | compute02 | Compute | 8 | 16 GB |
+| 3 | compute03 | Compute | 8 | 16 GB |
+| 4 | compute04 | Compute | 8 | 16 GB |
+| 5 | compute05 | Compute | 8 | 16 GB |
 
 ---
 
