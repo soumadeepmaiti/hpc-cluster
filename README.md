@@ -106,14 +106,3 @@ All recurring operational tasks run unattended via cron and systemd timers:
 | Slurm accounting purge | Weekly Sunday | cron |
 
 ---
-
-## Key Operational Incidents Resolved
-
-- **NFS UID mismatch**: slurm user had UID 64030 on compute nodes vs 995 on master — resolved via `usermod -u 995 slurm` + `chown -R slurm:slurm` on all affected paths.
-- **Slurm state corruption**: cluster-name mismatch in `StateSaveLocation` blocked slurmctld startup — resolved by wiping `/var/spool/slurmctld/clustername`.
-- **SSH/VPN conflict**: Tailscale overlay network silently rewrote the default SSH target for `master` from LAN IP to 100.x — resolved via `~/.ssh/config` `HostName` override.
-- **Slurmd restart loop**: systemd `Restart=always` policy caused node flapping under slurmctld — resolved with `systemctl edit slurmd` override setting `Restart=no`.
-- **chronyd not serving**: master missing `local stratum 10` and `allow 192.168.50.0/24` — compute nodes showed `^?` until both directives added.
-
----
-
